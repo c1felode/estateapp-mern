@@ -1,16 +1,19 @@
 import bcrypt from 'bcrypt'
+import prisma from "../lib/prisma.js"
 
 export const register = async (req, res) => {
     try {
-        const { username, email, password } = req.body
+        const { username, email, password, avatar } = req.body
 
         const hashedPassword = await bcrypt.hash(password, 12)
-        console.log(hashedPassword)
 
-        // [Тут в будущем будет сохранение в базу данных]
-
-        return res.status(201).json({ 
-            message: "Пользователь успешно зарегистрирован!" 
+        const newUser = await prisma.user.create({
+            data: {
+                username, email, password:hashedPassword, avatar:!avatar ? null : avatar
+            }
+        })
+        return res.status(201).json({
+            message: "Пользователь успешно зарегистрирован!",
         })
 
     } catch (error) {
@@ -25,5 +28,5 @@ export const login = (req, res) => {
 }
 
 export const logout = (req, res) => {
-    // db operations
+    // db operations 
 }
