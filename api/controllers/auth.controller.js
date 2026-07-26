@@ -4,19 +4,25 @@ import jwt from "jsonwebtoken"
 
 export const register = async (req, res) => {
     try {
+        // get the user info from body
         const { username, email, password, avatar } = req.body
 
+        // hash the password
         const hashedPassword = await bcrypt.hash(password, 12)
-
+        
+        // save new user to db 
         const newUser = await prisma.user.create({
             data: {
                 username, email, password:hashedPassword, avatar:!avatar ? null : avatar
             }
         })
+        // response if ok
         return res.status(201).json({
             message: "Пользователь успешно зарегистрирован!",
         })
 
+
+    // catch error
     } catch (error) {
         console.error(error)
         return res.status(500).json({ message: "Внутренняя ошибка сервера" })
@@ -39,8 +45,10 @@ export const login = async (req, res) => {
 
         if (!isPasswordValid) return res.status(401).json({ message: "Invalid credentials" });
 
-        const age = 1000 * 60 * 60 * 24 * 7
-        // generate cookie and send it to the user
+
+        const age = 1000 * 3600 * 24 * 7 // 1 week age
+
+        // generate token and save it to cookies
         const token = jwt.sign({
             id:user.id
         }, process.env.JWT_SECRET_KEY, {expiresIn:age})
