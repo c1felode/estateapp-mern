@@ -1,3 +1,4 @@
+import AuthActions from "./AuthActions";
 import MiniProfile from "./MiniProfile";
 
 export default function Header() {
@@ -19,6 +20,7 @@ export default function Header() {
             </nav>
             <div>
                 <MiniProfile/>
+                <AuthActions/>
             </div>
         </header>
     )

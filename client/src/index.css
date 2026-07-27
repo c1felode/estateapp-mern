@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-    --primary: #fece51;
+  --primary: #fece51;
 }
 body{
   font-family: "Lato", sans-serif;
