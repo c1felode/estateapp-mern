@@ -1,7 +1,9 @@
+import Header from "./components/Header"
+
 function App() {
   return (
     <>
-      <div className=''>estateapp-mern</div>
+      <div className='container mx-auto'><Header/></div>
     </>
   )
 }
