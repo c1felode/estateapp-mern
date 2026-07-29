@@ -20,7 +20,7 @@ export default function Header() {
             </nav>
             <div>
                 <MiniProfile/>
-                <AuthActions/>
+                {/* <AuthActions/> */}
             </div>
         </header>
     )
