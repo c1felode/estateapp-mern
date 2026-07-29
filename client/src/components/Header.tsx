@@ -3,7 +3,7 @@ import MiniProfile from "./MiniProfile";
 
 export default function Header() {
     return (
-        <header className="flex justify-between h-25 items-center">
+        <header className="flex justify-between h-25 items-center sticky top-0">
             <nav className="flex gap-16 items-center">
                 <a href="/">
                     <div className="flex gap-4 items-center">
