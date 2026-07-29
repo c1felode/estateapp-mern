@@ -26,7 +26,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="h-full bg-[#fcf5f3]">
+            <div className="h-full w-full bg-[#fcf5f3]">
                 <img src="/bg.png" alt="" />
             </div>
         </div>
