@@ -2,9 +2,9 @@ export default function HomePage() {
     return (<>
         <div className="h-200 flex items-center">
             <div className="">
-                <div className="flex flex-col gap-16 w-1/2">
+                <div className="flex flex-col gap-16 w-full">
                     <h1 className="text-6xl font-bold">Find Real Estate & Get Your Dream Place</h1>
-                    <p className="text-2xl font-light">
+                    <p className="text-2xl font-light w-12/13">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
                         explicabo suscipit cum eius, iure est nulla animi consequatur
                         facilis id pariatur fugit quos laudantium temporibus dolor ea
@@ -26,7 +26,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="h-full w-full bg-[#fcf5f3]">
+            <div className="h-full w-full bg-(--secondary)">
                 <img src="/bg.png" alt="" />
             </div>
         </div>
